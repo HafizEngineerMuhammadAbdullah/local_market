@@ -1,0 +1,46 @@
+Welcome to Postman! Since you're just getting started, let me orient you quickly.
+
+Looking at your workspace, you have one collection called **My Collection** in your personal workspace. You appear to be starting fresh, so here are the most useful first steps:
+
+---
+
+### 1. Send your first request
+
+The core of Postman is sending HTTP requests and seeing responses. You can:
+- Click the **+** tab at the top to open a new request
+- Type in any URL (e.g., `https://postman-echo.com/get`) and hit **Send**
+- You'll see the response body, status code, and headers returned below
+
+---
+
+### 2. Save requests into a collection
+
+A **collection** is a folder that groups related requests together — think of it as a project folder for an API. You already have **My Collection** ready to use. After sending a request, click **Save** and choose that collection to keep it for later.
+
+---
+
+### 3. Use variables to avoid repeating yourself
+
+Instead of typing `https://api.example.com` in every request, you can create an **environment** with a variable like `{{base_url}}` and reuse it everywhere. To do this:
+- Click **Environments** in the left sidebar
+- Create a new environment, add a variable (e.g., `base_url = https://api.example.com`)
+- Select that environment from the top-right dropdown before sending requests
+
+---
+
+### 4. Add a simple test
+
+After you get a successful response, you can add a quick automated check. In the request's **Scripts** tab (under "Post-response"), add:
+
+```javascript
+pm.test("Status is 200", function () {
+    pm.response.to.have.status(200);
+});
+```
+
+This runs every time you send the request and tells you if something breaks.
+
+---
+
+That's the core loop: **send → save → reuse with variables → verify with tests.** Start with step 1 and build from there.
+
